@@ -1,4 +1,4 @@
-# personal-website-react
+# Divyang Chauhan — Portfolio
 
 Personal portfolio site for [divyang.dev](https://divyang.dev).
 

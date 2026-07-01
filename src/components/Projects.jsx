@@ -564,7 +564,7 @@ export default function Projects() {
           </div>
           <a
             className="dc-btn-outline"
-            href="https://clinchcv.com/"
+            href="https://staging.clinchcv.com/"
             target="_blank"
             rel="noopener"
             style={{
@@ -578,7 +578,7 @@ export default function Projects() {
               textDecoration: 'none',
             }}
           >
-            clinchcv.com ↗
+            staging.clinchcv.com ↗
           </a>
         </article>
       </div>

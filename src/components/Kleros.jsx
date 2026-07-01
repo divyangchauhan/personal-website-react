@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { mono, sans, reveal } from '../theme'
 
 const built = [
@@ -20,52 +19,9 @@ const built = [
   },
 ]
 
-const flowDetail = {
-  chains: 'Multi-chain; smart contracts emit on-chain events.',
-  ingest:
-    'Runtime-configurable chains & contracts (add a new chain/contract without redeploying); normalizes events.',
-  stream: 'Emits normalized events for async processing.',
-  downstream: 'Automation Bots and Notifications consume the events.',
-}
-
-function FlowNode({ id, active, onSelect, flex, minWidth, children }) {
-  const on = active === id
-  return (
-    <div
-      onMouseEnter={() => onSelect(id)}
-      onClick={() => onSelect(id)}
-      style={{
-        flex,
-        minWidth,
-        cursor: 'pointer',
-        borderRadius: 10,
-        background: on ? '#1a160c' : '#0e1116',
-        border: `1px solid ${on ? '#f2b441' : '#3a4150'}`,
-        padding: '16px 14px',
-        textAlign: 'center',
-        transition: 'all .3s ease',
-        boxShadow: on ? '0 0 24px -6px rgba(242,180,65,.5)' : 'none',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-      }}
-    >
-      {children}
-    </div>
-  )
-}
-
-const Arrow = () => (
-  <div style={{ display: 'flex', alignItems: 'center', color: '#f2b441', fontFamily: mono, fontSize: 18 }}>
-    →
-  </div>
-)
-
 const techTags = ['NestJS', 'TypeScript', 'EVM (multi-chain)', 'Viem', 'Solidity']
 
 export default function Kleros() {
-  const [active, setActive] = useState('ingest')
-
   return (
     <article
       style={{
@@ -202,82 +158,6 @@ export default function Kleros() {
                 <div style={{ fontSize: 13.5, lineHeight: 1.6, color: '#9aa3b2' }}>{b.desc}</div>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* event ingestion pipeline */}
-        <div
-          style={{
-            ...reveal(),
-            border: '1px solid rgba(255,255,255,.1)',
-            borderRadius: 16,
-            background: 'rgba(8,10,14,.6)',
-            padding: '24px 26px 26px',
-            marginBottom: 32,
-          }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'baseline',
-              justifyContent: 'space-between',
-              flexWrap: 'wrap',
-              gap: 10,
-              marginBottom: 20,
-            }}
-          >
-            <div
-              style={{
-                fontFamily: mono,
-                fontSize: 11,
-                letterSpacing: '.18em',
-                textTransform: 'uppercase',
-                color: '#8a93a3',
-              }}
-            >
-              // Event ingestion pipeline
-            </div>
-            <div style={{ fontFamily: mono, fontSize: 11, color: '#6c7585' }}>hover a stage</div>
-          </div>
-          <div className="dc-kl-flow" style={{ display: 'flex', alignItems: 'stretch', gap: 10, flexWrap: 'wrap' }}>
-            <FlowNode id="chains" active={active} onSelect={setActive} flex={1} minWidth={130}>
-              <div style={{ fontFamily: mono, fontSize: 13, color: '#cdd3dd' }}>EVM Chains</div>
-            </FlowNode>
-            <Arrow />
-            <FlowNode id="ingest" active={active} onSelect={setActive} flex={1.3} minWidth={170}>
-              <div style={{ fontFamily: mono, fontSize: 13, color: '#cdd3dd' }}>Event Ingestion Service</div>
-              <div style={{ fontFamily: mono, fontSize: 11, color: '#6c7585', marginTop: 4 }}>NestJS</div>
-            </FlowNode>
-            <Arrow />
-            <FlowNode id="stream" active={active} onSelect={setActive} flex={1} minWidth={130}>
-              <div style={{ fontFamily: mono, fontSize: 13, color: '#cdd3dd' }}>Event Stream</div>
-              <div style={{ fontFamily: mono, fontSize: 11, color: '#6c7585', marginTop: 4 }}>async</div>
-            </FlowNode>
-            <Arrow />
-            <FlowNode id="downstream" active={active} onSelect={setActive} flex={1} minWidth={150}>
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  gap: 5,
-                }}
-              >
-                <div style={{ fontFamily: mono, fontSize: 12.5, color: '#cdd3dd' }}>Automation Bots</div>
-                <div style={{ fontFamily: mono, fontSize: 10.5, color: '#5a6373' }}>·</div>
-                <div style={{ fontFamily: mono, fontSize: 12.5, color: '#cdd3dd' }}>Notifications</div>
-              </div>
-            </FlowNode>
-          </div>
-          <div
-            style={{
-              marginTop: 18,
-              borderTop: '1px solid rgba(255,255,255,.08)',
-              paddingTop: 16,
-              minHeight: 46,
-            }}
-          >
-            <div style={{ fontSize: 14.5, lineHeight: 1.65, color: '#c6ccd6' }}>{flowDetail[active]}</div>
           </div>
         </div>
 

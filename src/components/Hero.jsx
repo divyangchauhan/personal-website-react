@@ -164,12 +164,12 @@ export default function Hero() {
         <div style={{ padding: '26px 26px', fontFamily: mono, fontSize: 14.5, lineHeight: 2.05 }}>
           {promptLine('whoami')}
           <div style={{ color: '#cdd3dd', paddingLeft: 2 }}>divyang_chauhan</div>
-          <div style={{ marginTop: 13 }}>{promptLine('years --fullstack')}</div>
+          <div style={{ marginTop: 13 }}>{promptLine('years')}</div>
           <div style={{ color: '#cdd3dd' }}>5+ · founding engineer ×2</div>
           <div style={{ marginTop: 13 }}>{promptLine('built')}</div>
           <div style={{ color: '#cdd3dd' }}>multi-tenant SaaS · EVM event pipelines · serverless ETL</div>
           <div style={{ marginTop: 13 }}>{promptLine('stack --top')}</div>
-          <div style={{ color: '#cdd3dd' }}>TypeScript · Python · NestJS · AWS · Kafka</div>
+          <div style={{ color: '#cdd3dd' }}>TypeScript · Python · NestJS · AWS · React</div>
           <div style={{ marginTop: 13 }}>
             <span style={{ color: '#4ad07f' }}>➜</span> <span style={{ color: '#6c7585' }}>~</span>{' '}
             <span
